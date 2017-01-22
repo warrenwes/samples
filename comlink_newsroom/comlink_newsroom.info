@@ -1,0 +1,13 @@
+name = Comlink Newsroom
+description = Comlink Newsroom.
+package = Comlink
+core = 7.x
+dependencies[] = comlink_newsroom_ct
+files[] = comlink_newsroom.module
+files[] = comlink_newsroom.homepage.inc
+files[] = comlink_newsroom.case_studies.inc
+files[] = comlink_newsroom.press_releases.inc
+files[] = comlink_newsroom.newsletters.inc
+files[] = comlink_newsroom.ebooks.inc
+
+

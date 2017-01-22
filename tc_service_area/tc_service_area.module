@@ -1,0 +1,477 @@
+<?php
+ 
+/**
+ * Implements hook_block_info().
+ */
+function tc_service_area_block_info() {
+  $blocks['service_area'] = array(
+    'info' => t('TC Service Area Block'),
+    'status' => TRUE,
+    //'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'service-area-search',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+ 
+
+
+/**
+ * Implements hook_block_configure().
+ */
+function tc_service_area_block_configure($delta = '') {
+  $form = array();
+  if ($delta == 'service_area') {
+    $form['service_area_banner'] = array(
+      '#title' => t('Banner Image'),
+      '#type' => 'managed_file',
+      '#description' => t('Image displayed in the block header.'),
+      '#upload_location' => 'public://',
+      "#upload_validators"  => array("file_validate_extensions" => array("png gif jpg jpeg")),
+      '#default_value' => variable_get('tc_service_area_banner', NULL),
+    );
+    $form['service_area_zips'] = array(
+      '#title' => t('Zip codes'),
+      '#type' => 'textarea',
+      '#description' => t('Comma separated list of zip codes in the service area.'),
+      //Zips are hadcoded but can be changed in admin panel
+      '#default_value' => variable_get('tc_service_area_zips', t('20011,20036,90210,48915')),
+    );
+  }
+  return $form;
+}
+ 
+
+
+/**
+ * Implements hook_block_save().
+ */
+function tc_service_area_block_save($delta = '', $edit = array()) {
+  if ($delta == 'service_area') {
+    //file handling based on the comments on the hook_block_save api page
+    //https://a...content-available-to-author-only...l.org/api/drupal/modules%21block%21block.api.php/function/hook_block_save/7
+    $default_theme = variable_get('theme_default');
+    $block = db_query('SELECT * FROM {block} WHERE module = :module AND delta = :delta AND theme = :theme', array(':module' => 'tc_service_area', ':delta' => 'service_area', ':theme' => $default_theme))->fetchObject();
+
+    // Get the previous fid of the file
+    $prev_fid = variable_get('tc_service_area_banner', 0);
+    // Has the file a new value?
+    if ($prev_fid != $edit['service_area_banner']) {
+      // File is being replaced or deleted?
+      if ($prev_fid > 0) {
+        // Delete the previous file
+        $file = file_load($prev_fid);
+        // Remove the reference to this file in the file_usage table
+        file_usage_delete($file, 'tc_service_area', 'block', $block->bid);
+        // Remove the file itself
+        file_delete($file);
+      }
+      // If the new fid has a different value then the previous fid,
+      // make a reference to this file in the file_usage table and
+      // update its status to 'FILE_STATUS_PERMAMENT' to prevent it
+      // from being deleted by cron.
+      if ($edit['service_area_banner'] > 0) {
+        // Load the file
+        $file = file_load($edit['service_area_banner']);
+        // Change the status from temporary to permanent
+        $file->status = FILE_STATUS_PERMANENT;
+        file_save($file);
+        // Add a reference to the file in the file_usage table
+        file_usage_add($file, 'tc_service_area', 'block', $block->bid);
+      }
+    }
+    //set the new values for the block configs
+    variable_set('tc_service_area_banner', $edit['service_area_banner']);
+    variable_set('tc_service_area_zips', $edit['service_area_zips']);
+  }
+}
+ 
+
+
+/**
+ * Implements hook_block_view().
+ */
+function tc_service_area_block_view($delta = '') {
+  if ($delta == 'service_area') {
+    $banner_fid = variable_get('tc_service_area_banner');
+    if ($banner_fid > 0) {
+      $banner = file_load($banner_fid);
+      $block['content']['banner'] = array(
+        '#theme' => 'image',
+        '#path' => $banner->uri,
+        '#attributes' => array(),
+      );
+    }
+    $block['content']['title'] = array();
+    $block['content']['form'] = drupal_get_form('service_area_search_form');
+  }
+  return $block;
+}
+ 
+
+
+
+/********************************************
+** form
+/********************************************/
+
+
+/**
+ * Builds the form for service area searches.
+ *
+ *Implements hook_form().
+ */
+function service_area_search_form($form, &$form_state) {
+  $form = array();
+
+  $form['zip'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Zip Code'),
+    '#attributes' => array('placeholder' => t('ex. 90210')),
+    //'#description' => "Please enter your zip code.",
+    '#size' => 12, 
+    '#maxlength' => 5,
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+
+  );
+
+  return $form;
+}
+
+
+
+/**
+ * Builds the form for service request page and get a quote page.
+ *
+ *Implements hook_form().
+ */
+function service_contact_form($form, &$form_state) {
+  $form = array();
+  $form['first'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('Please enter your first name.')),
+    '#maxlength' => 20,
+    '#required' => TRUE,
+    );
+  $form['last'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('Please enter your last name.')),
+    '#maxlength' => 20,
+    '#required' => TRUE,
+  );
+  $form['phone'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('Please enter your Phone Number.')),
+    '#maxlength' => 255,
+    '#required' => TRUE,
+  );
+  $form['email'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('Please enter your E-mail address.')),
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+    return $form;
+}
+
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function tc_service_area_form_service_area_search_form_alter(&$form, &$form_state, $form_id) {
+  $form['zip']['#title'] = "Search by Zip Code";
+}
+
+
+
+/**
+ * Implements hook_form_validate().
+ */
+function service_area_search_form_validate($form, &$form_state) {
+  //Check if format is valid or if there is an area that has that specific zip code
+  if (!check_format($form_state['values']['zip'])) {
+    form_set_error('zip', t('The zip code you entered is not valid.'));
+  }else if (isset(zip_locate($form_state['values']['zip'])['error'])) {
+    form_set_error('zip', t('The zip code you entered does not exist.'));
+  }
+}
+
+
+
+/**
+ * Service area search form callback
+ * If it's a valid zip AND it's among the zips entered in the conifg form 
+ * redirects to 'get-free-quote' webform
+ * otherwise redirects to 'service-area-request' webform
+ *
+ *
+ * Implements hook_form_submit().
+ */
+function service_area_search_form_submit($form, &$form_state) {
+  if (!zipExists($form_state['values']['zip'])) {
+    $_SESSION['service_area_search'] = $form_state['values'];
+    $form_state['redirect'] = 'service-area-request';
+  } else {
+    $_SESSION['service_area_search'] = $form_state['values'];
+    $form_state['redirect'] = 'get-free-quote';
+  }
+}
+
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param string $current_page
+ *   Path of current page.
+ * @param array $form
+ *   Service contact form.
+ * @param array $input
+ *   Session data.
+ * @param array $loocation
+ *   Curl request return data of zip code location.
+ */
+function tc_service_area_preprocess_service_contact_form(&$variables) {
+  $current_page = current_path();
+  $form = $variables['form'];
+
+  //Check session variable for data
+  if (!empty($_SESSION['service_area_search'])) {
+   
+    $input = $_SESSION['service_area_search']; 
+    $location = zip_locate($input['zip']);
+    //if not empty AND currrnet page is 'service-area-search', display message with location information and ask to fill in form
+    if ($current_page == 'service-area-request') {
+      $variables['message'] = t('The zip code <strong>'.$input['zip'].'</strong> in <strong>'.$location['city'].'</strong>, <strong>'.$location['state'].'</strong> is not in our area.<br>You may request service in the form below.');
+    }//if not empty AND currrnet page is 'get-free-quote', display message with location information and ask to fill in form 
+    else if ($current_page == 'get-free-quote'){
+      $variables['message'] = t('The zip code <strong>'.$input['zip'].'</strong> in <strong>'.$location['city'].'</strong>, <strong>'.$location['state'].'</strong> is in our area!<br>You may request a quote for service in the form below.');
+    }
+    //Clear session data
+    unset($_SESSION['service_area_search']);
+  } else {
+    //Clear session data
+    unset($_SESSION['service_area_search']);
+    //if session data is empty redirect to service-area-search form
+    return drupal_goto('service-area-search');
+  }
+  //Set variables for template page
+  $variables['first'] = render($form['first']);
+  $variables['last'] = render($form['last']);
+  $variables['email'] = render($form['email']);
+  $variables['phone'] = render($form['phone']);
+  $variables['children'] = drupal_render_children($form);
+}
+
+
+
+/********************************************
+** Functions
+/********************************************/
+
+
+
+/**
+* Makes a call to Ziptastic Api service
+* - example http://ziptasticapi.com/20011
+* Returns the response of Ziptastic Api as array
+* - example array ( [country] => US [state] => DC [city] => WASHINGTON )
+* @param string $zipcode
+*   The zip code submitted from the service area form.
+*/
+function zip_locate($zipcode){
+
+  $url = "http://ziptasticapi.com/" . $zipcode;
+   //Initiate curl
+  $ch = curl_init();
+  // Disable SSL verification
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  // Will return the response, if false it print the response
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  // Set the url
+  curl_setopt($ch, CURLOPT_URL,$url);
+  // Execute
+  $result=curl_exec($ch);
+  // Closing
+  curl_close($ch);
+
+  return json_decode($result, true);
+}
+
+
+
+/**
+* Checks if zip code is all numbers
+*
+* Returns 0 or 1
+* 
+* @param string $zipcode
+*   The zip code submitted from the service area form.
+*/ 
+function check_format($zipcode){
+  return preg_match('/^[0-9]{5}([- ]?[0-9]{4})?$/', $zipcode);
+}
+
+
+
+/**
+* Checks if zip matches saved zip in block config 
+*
+* Returns TRUE or FALSE
+* 
+* @param string $new_zip
+*   The zip code submitted from the service area form.
+* @param string $saved_zip
+*   The sting of comma-separated zip codes saved in block config.
+*/ 
+function zipExists($new_zip){
+  //get saved zip string
+  $saved_zip = variable_get('tc_service_area_zips', 0);
+  $zip_found = strpos($saved_zip, $new_zip);
+  if ($zip_found === FALSE) {
+    return FALSE;
+  } else {
+    return TRUE;
+  }
+}
+
+
+
+/********************************************
+** menu
+/********************************************/
+
+
+
+/**
+* Implements hook_menu().
+*/
+function tc_service_area_menu() {
+  $items = array();
+  $items['service-area-search'] = array(
+    'title' => 'Search for Service in your Area',
+    'description' => 'Enter your zip code to search.',
+    'page callback' => 'service_area_search_callback',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['service-area-request'] = array(
+    'title' => 'Service Area Request',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('service_contact_form'),
+    'access arguments' => array('access content'),
+    'description' => 'Please fill out the Service Area Request Form.',
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+  $items['get-free-quote'] = array(
+    'title' => 'Get a Free Quote',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('service_contact_form'),
+    'access arguments' => array('access content'),
+    'description' => 'Please fill out the form to Get a Free Quote Form.',
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+
+    return $items;
+}
+
+
+
+/**
+* Menu callback.
+*/
+function service_area_search_callback() {
+  return theme('service-area-search');
+}
+
+
+
+/********************************************
+** theme
+/********************************************/
+
+
+
+/**
+* Implements hook_theme().
+*/
+function tc_service_area_theme($existing, $type, $theme, $path) {
+   $theme = array();
+   $theme['service-area-search'] = array(
+      'template' => 'page--service-area-search',
+      'path' => $path . '/templates',
+      'render element' => 'form',
+      'variables' => array(
+        'block' => NULL,
+     ),
+   );
+   $theme['service_contact_form'] = array(
+      'template' => 'service-contact-form',
+      'path' => $path . '/templates',
+      'render element' => 'form',
+   );
+   return $theme;
+}
+
+
+
+/**
+ * Implements hook_preprocess().
+ */
+function tc_service_area_preprocess(&$variables, $hook) {
+  if ($hook === 'service-area-search') {
+    $variables['block'] = module_invoke('tc_service_area', 'block_view', 'service_area');
+  }
+}
+
+
+
+
+
+/**
+ * Implements hook_install().
+ */
+// function tc_service_area_install() {
+
+//   // Load the files contents
+//   $image = file_get_contents(drupal_get_path('module', 'tc_service_area') . '/templates/img/usazip.jpg');
+
+//   // Returns the new file object
+//   $file = file_save_data($image, 'public://<filename>', FILE_EXISTS_RENAME);
+
+//   variable_set('tc_service_area_banner', $file->fid);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

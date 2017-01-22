@@ -1,0 +1,296 @@
+<?php
+
+module_load_include('inc', 'comlink_newsroom', 'comlink_newsroom.homepage');
+module_load_include('inc', 'comlink_newsroom', 'comlink_newsroom.case_studies');
+module_load_include('inc', 'comlink_newsroom', 'comlink_newsroom.press_releases');
+module_load_include('inc', 'comlink_newsroom', 'comlink_newsroom.newsletters');
+module_load_include('inc', 'comlink_newsroom', 'comlink_newsroom.ebooks');
+
+
+/********************************************
+** theme
+/********************************************/
+
+/**
+* Implements hook_theme().
+*/
+function comlink_newsroom_theme($existing, $type, $theme, $path) {
+      $theme = array();
+      $theme['node__press_release'] = array(
+        'render element' => 'content',
+        'base hook' => 'node',
+        'template' => 'node--press_release',
+        'path' => drupal_get_path('module', 'comlink_newsroom') . '/templates',
+       );
+      $theme['node__case_study'] = array(
+        'render element' => 'content',
+        'base hook' => 'node',
+        'template' => 'node--case_study',
+        'path' => drupal_get_path('module', 'comlink_newsroom') . '/templates',
+       );
+      $theme['node__ebook'] = array(
+        'render element' => 'content',
+        'base hook' => 'node',
+        'template' => 'node--ebook',
+        'path' => drupal_get_path('module', 'comlink_newsroom') . '/templates',
+       );
+      $theme['node__newsletter'] = array(
+        'render element' => 'content',
+        'base hook' => 'node',
+        'template' => 'node--newsletter',
+        'path' => drupal_get_path('module', 'comlink_newsroom') . '/templates',
+       );
+      return $theme;
+}
+
+/********************************************
+** page
+/********************************************/
+
+/**
+* Implements hook_menu().
+*/
+function comlink_newsroom_menu() {
+  $items['newsroom'] = array(
+    'title' => 'Comlink Newsroom',
+    'page callback' => 'comlink_newsroom_callback',
+    'access arguments' => array('access content'),
+  );
+  $items['newsroom/press_releases'] = array(
+    'title' => 'Comlink Newsroom',
+    'page callback' => 'comlink_newsroom_press_releases_callback',
+    'access arguments' => array('access content'),
+  );
+  $items['newsroom/newsletter'] = array(
+    'title' => 'Comlink Newsroom',
+    'page callback' => 'comlink_newsroom_newsletter_callback',
+    'access arguments' => array('access content'),
+  );
+  $items['newsroom/case_studies'] = array(
+    'title' => 'Comlink Newsroom',
+    'page callback' => 'comlink_newsroom_case_studies_callback',
+    'access arguments' => array('access content'),
+  );
+  $items['newsroom/ebooks'] = array(
+    'title' => 'Comlink Newsroom',
+    'page callback' => 'comlink_newsroom_ebooks_callback',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+
+/**
+* Custom callback functions.
+*/
+function comlink_newsroom_callback() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+//    '#markup' => '<p>Newsroom Page View</p>',
+  );
+  return $content;
+}
+
+function comlink_newsroom_press_releases_callback() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+//    '#markup' => '<p>Press Releases Page View</p>',
+  );
+  return $content;
+}
+
+function comlink_newsroom_newsletter_callback() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+//    '#markup' => '<p>Newsletter Page View</p>',
+  );
+  return $content;
+}
+
+function comlink_newsroom_case_studies_callback() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+//    '#markup' => '<p>Case Studies Page View</p>',
+  );
+  return $content;
+}
+
+function comlink_newsroom_ebooks_callback() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+//    '#markup' => '<p>Ebooks Page View</p>',
+  );
+  return $content;
+}
+  
+
+
+/********************************************
+** blocks
+/********************************************/
+
+/**
+ * Implements hook_block_info().
+ */
+function comlink_newsroom_block_info() {
+  //Left and right blocks for newsroom page
+  $blocks['comlink_newsroom_nav_block'] = array(
+    'info' => t('Comlink Newsroom Nav Block'),
+    'status' => TRUE,
+    'region' => 'newsroom_right_nav',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'newsroom\nnewsroom/press_releases\nnewsroom/newsletter\nnewsroom/case_studies\nnewsroom/ebooks',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  $blocks['comlink_newsroom_content_block'] = array(
+    'info' => t('Comlink Newsroom Content Block'),
+    'status' => TRUE,
+    'region' => 'newsroom_left_content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'newsroom\nnewsroom/press_releases\nnewsroom/newsletter\nnewsroom/case_studies\nnewsroom/ebooks',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function comlink_newsroom_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    //Left and right blocks for newsroom page
+      case 'comlink_newsroom_nav_block':
+          $block['content'] = comlink_newsroom_nav_block_content();
+          break;
+
+      case 'comlink_newsroom_content_block':
+          $block['content'] = current_content();
+          break;
+  }
+  return $block;
+}
+
+
+
+/********************************************
+** Supporting functions
+/********************************************/
+
+
+/*
+*
+*Returns all of the navigation buttons associated with content types as formatted HTML markup
+*
+*/
+function comlink_newsroom_nav_block_content() {
+  global $base_url;
+  $newsroom_active_class = (current_path() == 'newsroom') ? "active" : "inactive";
+  $press_releases_active_class = (current_path() == 'newsroom/press_releases') ? "active" : "inactive";
+  $newsletter_active_class = (current_path() == 'newsroom/newsletter') ? "active" : "inactive";
+  $case_studies_active_class = (current_path() == 'newsroom/case_studies') ? "active" : "inactive";
+  $ebooks_active_class = (current_path() == 'newsroom/ebooks') ? "active" : "inactive";
+  $nav_content = '
+    <div class="nav-wrapper hidden-xs">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="'.$newsroom_active_class.'"><a href="'.$base_url.'/newsroom">Newsroom</a></li>
+        <li role="presentation" class="'.$press_releases_active_class.'"><a href="'.$base_url.'/newsroom/press_releases">Press Releases</a></li>
+        <li role="presentation" class="'.$newsletter_active_class.'"><a href="'.$base_url.'/newsroom/newsletter">Newsletter</a></li>
+        <li role="presentation" class="'.$case_studies_active_class.'"><a href="'.$base_url.'/newsroom/case_studies">Case Studies</a></li>
+        <li role="presentation" class="'.$ebooks_active_class.'"><a href="'.$base_url.'/newsroom/ebooks">eBooks</a></li>
+      </ul>
+    </div>
+  ';
+  return $nav_content; 
+}
+
+
+/*
+*
+*Returns all of the tags associated with a story as formatted HTML markup
+*
+* @param array $tag_ids
+*   An array of strings representing the tag ids of the current record.
+*/
+function print_tags($tag_ids) {
+    if (count($tag_ids) > 0) {
+        foreach ($tag_ids as $tid) {
+            $term = taxonomy_term_load($tid['tid']);
+            $tags.= '<a href="'.$base_path.'/taxonomy/term/'.$term->tid .'" title="View all content tagged as '.$term->name.'" class="taxonomy-term">'.$term->name.'</a>';
+        }
+        return '<span class="item-tags"><i class="fa fa-tag"></i> '.$tags.'</span><span class="meta-seperator">|</span>';
+    } else {
+        return '';
+    }
+}
+
+
+/*
+*
+*Entity Field Query that returns all of the records of any content type referenced.
+*
+*If there is no content available it returns HTML markup displaying "No posts yet!".
+*
+* @param array $types
+*   An array of content type machine names.
+* @param string $orderby
+*   A string that can take either ASC for ascending order or DESC for descending order
+* @param int $pager
+*   An integer setting the value for the amount of returned records.
+*/
+
+function get_recent_posts(array $types, $orderby = 'DESC', $pager = 100) {
+    global $user;
+    global $base_url;
+    $query = new EntityFieldQuery();
+    $query
+            ->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', $types)
+            ->propertyCondition('status', 1)
+            ->propertyOrderBy('created', $orderby)
+            ->pager($pager);
+    $result = $query->execute();
+    if (empty($result)) {
+        $nodes = '<div class="col-xs-12"><h2>No posts yet!</h2></div>';
+    } else {
+        $nodes = node_load_multiple(array_keys($result['node']));
+    }
+    return $nodes;
+}
+
+
+/*
+*Switch statement that uses the current url to determine what function to use to populate block content.
+*/
+function current_content() {
+
+  $current_page = current_path();
+
+  switch ($current_page) {
+    case 'newsroom':
+      return recent_newsroom_posts_homepage();
+      break;
+
+    case 'newsroom/press_releases':
+      return recent_press_releases();
+      break;
+
+    case 'newsroom/newsletter':
+      return recent_newsletters();
+      break;
+
+    case 'newsroom/case_studies':
+      return recent_case_studies();
+      break;
+
+    case 'newsroom/ebooks':
+      return recent_ebooks();
+      break;
+    
+    default:
+      break;
+  }
+}

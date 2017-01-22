@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Comlink Newsroom Content Types feature.
+ */
+
+include_once 'comlink_newsroom_ct.features.inc';

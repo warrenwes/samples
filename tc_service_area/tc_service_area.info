@@ -1,0 +1,6 @@
+name = TC Service Area
+description = TC Service Area Zip Code validate and search.
+package = TC Service Area
+core = 7.x
+
+

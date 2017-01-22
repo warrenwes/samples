@@ -1,0 +1,756 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"va",
+				"variable"
+			],
+			[
+				"vps",
+				"vpsprice"
+			],
+			[
+				"dir",
+				"verbose_directive	AngularJS"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"di",
+				"verbose_directive	AngularJS"
+			],
+			[
+				"$l",
+				"$log	AngularJS"
+			],
+			[
+				"$roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"$w",
+				"$watch"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			],
+			[
+				"sc",
+				"$scope	AngularJS"
+			],
+			[
+				"p",
+				"productProfile"
+			],
+			[
+				"data",
+				"dataService"
+			],
+			[
+				"nu",
+				"num1"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"cust",
+				"cust_obj"
+			],
+			[
+				"cu",
+				"customer_info"
+			],
+			[
+				"pro",
+				"processSoftware"
+			],
+			[
+				"modal",
+				"modalOptions"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"order",
+				"order_id"
+			],
+			[
+				"da",
+				"dataService"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"get",
+				"get_started"
+			],
+			[
+				"bac",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tc_service_area.module",
+			"settings":
+			{
+				"buffer_size": 13018,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tc_service_area.info",
+			"settings":
+			{
+				"buffer_size": 122,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.txt",
+			"settings":
+			{
+				"buffer_size": 1549,
+				"line_ending": "Unix",
+				"name": "README.txt"
+			}
+		},
+		{
+			"file": "templates/page--service-area-search.tpl.php",
+			"settings":
+			{
+				"buffer_size": 224,
+				"line_ending": "Unix",
+				"name": "page--service-area-search.tpl.php"
+			}
+		},
+		{
+			"file": "templates/service-contact-form.tpl.php",
+			"settings":
+			{
+				"buffer_size": 185,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Pa",
+		"selected_items":
+		[
+			[
+				"Pa",
+				"Package Control: Install Package"
+			],
+			[
+				"J",
+				"JSLint"
+			],
+			[
+				"Pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 370.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"cd ..",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox2/sites/all/modules/tc_service_area"
+	],
+	"file_history":
+	[
+		"/Users/wwesley/vagrant/vdd/data/test/tests_practice.sublime-project",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox2/sites/all/modules/tc_service_area/tc_service_area.info",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox2/sites/all/modules/tc_service_area/templates/css/tc_service_style.css",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox2/sites/all/modules/tc_service_area/templates/js/tc_service_style.js",
+		"/Users/wwesley/Desktop/untitled folder 4/ang/ang.module",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox2/sites/all/modules/tc_service_area/templates/service-area-search-form.tpl.php",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/testform/testform.email.inc",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/testform/testform.info",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/testform/testform.install",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/myforms/myforms.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/assets/js/jollyness.js",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/templates/contact-site-form.tpl.php",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/modules/contact/contact.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/template.php",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/modules/contact/contact.pages.inc",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/modules/formblock/formblock.module",
+		"/Users/wwesley/vagrant/vdd/data/test/test.php",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/includes/common.inc",
+		"/Users/wwesley/vagrant/vdd/data/sm2/less/grayscale.less",
+		"/Users/wwesley/vagrant/vdd/data/sm2/css/bootstrap.css",
+		"/Users/wwesley/vagrant/vdd/data/sm2/js/jquery.js",
+		"/Users/wwesley/Desktop/DrupalExp_Richer/Demo/sites/all/themes/richer/assets/css/style-.css",
+		"/Users/wwesley/Desktop/DrupalExp_Richer/Demo/sites/all/themes/richer/lessc/style.less",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/lessc/style.less",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/lessc/style-rtl.less",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/lessc/config.less",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/lessc/slideshow.less",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/comlink_job/templates/node--job_post.tpl.php",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/comlink_events/comlink_events.info",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/comlink_job/comlink_job.info",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/comlink_events/comlink_events.module",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/comlink_job/comlink_job.install.html",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/examples/field_example/field_example.module",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/examples/field_example/field_example.install",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/commerce/modules/product/commerce_product.module",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/commerce/modules/product/commerce_product.install",
+		"/Users/wwesley/vagrant/vdd/data/drupal_modules/ang/ang.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/modules/about_blocks/about_blocks.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/jollyness.info",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/modules/about_blocks/pages/innovation.html",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/modules/front_page/front_page.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/themes/jollyness/lessc/block.less",
+		"/Users/wwesley/Desktop/Newsletter Entity/front_page/front_page.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/sites/all/modules/front_page/front_page.info",
+		"/Users/wwesley/vagrant/vdd/data/drupalsandbox/sites/all/modules/ang/ang.module",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/modules/drupalexp/modules/dexp_gmap/js/jquery.gomap-1.3.2.js",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/modules/drupalexp/modules/dexp_gmap/js/dexp_gmap.js",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/modules/drupalexp/modules/dexp_grid/views-dexp-grid.tpl.php",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/modules/drupalexp/modules/dexp_grid/dexp_grid.views.inc",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/themes/jollyness/templates/views/ views-view-fields--blog-view-style-test--block.tpl.php",
+		"/Users/wwesley/vagrant/vdd/data/comlink.net.dev/profiles/drupalexp_jollyness/themes/jollyness/templates/views/views-view-fields--default.tpl.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/mvc/app/controller/home.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/mvc/public/.htaccess",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/mvc/.htaccess",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/classes_test/test.ini",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/classes_test/index.php",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/checkout/app.js",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/baas/app.js",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/solution-builder/app.js",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/solution-builder/RS_CTRL_MODULE.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/checkout/cart.phtml",
+		"/Users/wwesley/vagrant/vdd/data/test/test.js",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/vps/app.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/vps/vpsconfig.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/solution-builder/main_data_service.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/vps-config.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/baas/index.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/checkout/index.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/baas/http_factory.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/controllers/BaasController.php",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/checkout/config-vps.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/review-selections.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/checkout/cart_main_data_service.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/product_configure_pages/vps_cart_config.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/checkout/cart_http_factory.js",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/solution-builder/PR_CTRL_MODULE.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/checkout/payment-info.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/checkout/review-order.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/controllers/SolutionBuilderController.php",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/index.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/main-form.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/product-recommend.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/get-started.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/cd-config.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/var-config.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/baas-config.phtml",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/views/scripts/solution-builder/hv-config.phtml",
+		"/Users/wwesley/vagrant/vdd/data/sm2/css/grayscale.css",
+		"/Users/wwesley/vagrant/comlink-cloud/public/js/default/vps/http_factory.js",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/controllers/IndexController.php",
+		"/Users/wwesley/vagrant/comlink-cloud/application/models/products/Repository/Skus.php",
+		"/Users/wwesley/Downloads/startbootstrap-grayscale-1.0.4/css/grayscale.css",
+		"/Users/wwesley/vagrant/vdd/data/sm/index.php",
+		"/Users/wwesley/vagrant/vdd/data/sm2/js/grayscale.js",
+		"/Users/wwesley/vagrant/vdd/data/sm/js/grayscale.js",
+		"/Users/wwesley/vagrant/vdd/data/sm/css/grayscale.css",
+		"/Users/wwesley/vagrant/drupal_machine/data/test/index.php",
+		"/Users/wwesley/vagrant/vagrant_database/CREATE TABLE scripts",
+		"/Users/wwesley/vagrant/comlink-cloud/application/configs/application.ini",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_vps/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_vps/app.js",
+		"/Users/wwesley/vagrant/comlink-cloud/Vagrantfile",
+		"/Users/wwesley/Desktop/untitled folder 2/Cloud Product Exel/CSV/VAR.csv",
+		"/Users/wwesley/vagrant/comlink-cloud/application/modules/default/controllers/ProductsController.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_contact/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_contact/app.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_varcloud/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_hostedvoice/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_baas/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_baas/app.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/solution_builder/app.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_clouddesktop/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_checkout/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_checkout/app.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_checkout/partials/cart.html",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_checkout/services/main_data_service.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_checkout/services/http_factory.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/scratch.html",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/solution_builder/index.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_vps/partials/vps_main.html",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/cc_vps/cc_vps.module",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/solution_builder/solution_builder.php",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud_zend/solution_builder/services/main_data_service.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud/sites/all/themes/comlink_cloud/js/theme-jquery.js",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud/sites/all/modules/cc_checkout/cc_checkout.module",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud/sites/all/modules/cc_checkout/partials/payment_info.html",
+		"/Users/wwesley/vagrant/drupal_machine/data/comlinkcloud/sites/all/modules/cc_checkout/partials/review_order.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tc_service_area_zips",
+			"alter",
+			"print_r",
+			"block_save",
+			"content",
+			"30px",
+			">\n",
+			"see",
+			"navbar",
+			"navbar-custom",
+			"nav",
+			"animation",
+			"transition",
+			"ease-in",
+			"collapse",
+			"in",
+			"navbar-toggle",
+			"navbar",
+			"navbar-header",
+			"push",
+			"intro-body",
+			"navbar-header",
+			"overla",
+			"@font-face",
+			"recent_news",
+			"get_news_articles",
+			"prod",
+			"hue",
+			"stylers",
+			"vps_price",
+			"selected_OS_product",
+			"dataService",
+			"Edit",
+			"os_data",
+			"http",
+			"addCDToCart",
+			"productProfile",
+			"selected_OS_product",
+			"http",
+			"vps_strg_product",
+			"vps_strg_data",
+			"httpFactory",
+			"vps_product",
+			"httpFactory",
+			"collect",
+			"cover",
+			"header",
+			"intro-body",
+			"media",
+			"@media",
+			"9",
+			"992",
+			"blue",
+			"page-scroll",
+			"page-sc",
+			"download",
+			"varcloud",
+			"$scope.module",
+			"\n<",
+			"drupal7",
+			"required",
+			"req",
+			"vps_price",
+			"update",
+			"add",
+			"data",
+			"list",
+			"commerce_checkout_form",
+			"checkout_page_example_commerce_checkout_page_info",
+			"commerce_checkout_pages",
+			"Your",
+			"commerce_checkout_router",
+			"software",
+			"count",
+			"$error",
+			"commerce_payment_credit_card_types()",
+			"Security code",
+			"Credit card",
+			"Expiration",
+			"PAYMENT TERMINAL",
+			"cardonfile",
+			"Available on the checkout form",
+			"payment_methods",
+			"drupal_get_form",
+			"submit",
+			"{\n",
+			"});\n",
+			"gs_active",
+			"checkbox",
+			"upload"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tc_service_area.module",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13018,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12592,
+								12592
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2631.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tc_service_area.info",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								7
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "README.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								990,
+								990
+							]
+						],
+						"settings":
+						{
+							"auto_name": "README.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 35.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/page--service-area-search.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 224,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"auto_name": "page--service-area-search.tpl.php",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/service-contact-form.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								181,
+								181
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 30.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tc_service_area.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
